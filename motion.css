@@ -1,0 +1,46 @@
+:root{--motion-ease:cubic-bezier(.2,.75,.25,1)}
+.motion-ready .motion-reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .8s var(--motion-ease),transform .9s var(--motion-ease);transition-delay:var(--motion-delay,0ms);will-change:opacity,transform}
+.motion-ready .motion-reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.motion-ready .hero-bg{animation:hero-image-arrive 1.8s var(--motion-ease) both}
+.motion-ready .hero-bg{transform:translate3d(0,var(--hero-shift,0px),0) scale(1.01)}
+.motion-ready .hero-inner>*{opacity:0;animation:hero-copy-arrive .85s var(--motion-ease) both}
+.motion-ready .hero-inner>.eyebrow{animation-delay:.08s}
+.motion-ready .hero-inner>h1{animation-delay:.18s}
+.motion-ready .hero-inner>.tagline{animation-delay:.3s}
+.motion-ready .hero-inner>.hero-copy{animation-delay:.4s}
+.motion-ready .hero-inner>.hero-buttons{animation-delay:.52s}
+.motion-ready .hero-inner>.hero-place{animation-delay:.65s}
+.motion-ready .header{animation:header-arrive .65s var(--motion-ease) both}
+.motion-ready .services .icon img,.motion-ready .future-list img,.motion-ready .arrow-icon,.motion-ready .motion-arrow{transition:transform .42s var(--motion-ease)}
+.services article:hover .icon img,.future-list>div:hover>img{transform:translateY(-3px) rotate(-5deg)}
+.btn:hover .arrow-icon,.text-link:hover .motion-arrow,.services a:hover .motion-arrow{transform:translateX(4px)}
+.text-link:hover .motion-arrow.is-down{transform:translateY(3px)}
+.about-photo,.fleet{overflow:hidden}
+.about-photo{transition:filter 1s var(--motion-ease)}
+.about-photo.is-visible{filter:saturate(1.04)}
+.business .fleet img{transform:scale(1.01);transition:transform 1.2s var(--motion-ease)}
+.business .fleet.is-visible img{animation:fleet-image-breathe 18s ease-in-out 1.2s infinite alternate}
+.steps article>i{transition:background .3s,color .3s,transform .5s var(--motion-ease)}
+.steps article.is-visible>i{animation:step-arrive .55s var(--motion-ease) both}
+.steps article:nth-child(2).is-visible>i{animation-delay:.12s}
+.steps article:nth-child(3).is-visible>i{animation-delay:.24s}
+.steps article:nth-child(4).is-visible>i{animation-delay:.36s}
+.steps article:hover>i{background:var(--gold);color:var(--navy);transform:scale(1.08)}
+.accordion summary:after{transition:transform .3s var(--motion-ease),color .3s}
+.accordion details[open] summary:after{transform:rotate(180deg)}
+.inline-icon,.motion-arrow{display:inline-block;width:15px;height:15px;object-fit:contain;vertical-align:-3px;margin-left:6px}
+.motion-arrow.is-down{width:16px;height:16px}
+.future-arrow{width:15px;height:15px;object-fit:contain;margin-left:auto;transition:transform .35s var(--motion-ease)}
+.future-list>div:hover .future-arrow{transform:translateX(4px)}
+.future-list>div:after{content:none}
+.foot-bottom>a{transition:background .25s,color .25s,transform .35s var(--motion-ease)}
+.foot-bottom>a:hover{background:var(--gold);transform:translateY(-3px)}
+@keyframes hero-image-arrive{from{opacity:.65;transform:scale(1.075)}to{opacity:1;transform:scale(1.01)}}
+@keyframes hero-copy-arrive{from{opacity:0;transform:translate3d(0,22px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes header-arrive{from{opacity:.65;transform:translate3d(0,-10px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes step-arrive{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+@keyframes fleet-image-breathe{from{transform:scale(1.01)}to{transform:scale(1.075)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.motion-ready .motion-reveal{opacity:1!important;transform:none!important;transition:none!important;will-change:auto}.motion-ready .hero-bg,.motion-ready .hero-inner>*,.motion-ready .header,.steps article.is-visible>i,.business .fleet.is-visible img{animation:none!important;opacity:1!important;transform:none!important}.services .icon img,.future-list img,.arrow-icon,.motion-arrow,.foot-bottom>a,.future-list>div,.steps article>i{transition:none!important;animation:none!important}}
+
+.motion-ready .services article.motion-reveal{transition:opacity .8s var(--motion-ease),transform .6s var(--motion-ease),box-shadow .5s var(--motion-ease),border-color .4s}
+.motion-ready .services article.motion-reveal.is-visible:hover{transform:translate3d(0,-6px,0)}

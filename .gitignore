@@ -1,0 +1,12 @@
+# Local working copies (not part of the site)
+_backup/
+assets/_originals/
+.claude/
+skills-lock.json
+Thumbs.db
+desktop.ini
+
+# Old unused assets (replaced by palette versions)
+assets/avento-logo.png
+assets/avento-logo-transparent.png
+assets/business-fleet.png
