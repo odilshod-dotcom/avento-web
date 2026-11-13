@@ -1,6 +1,6 @@
 # AVENTO website
 
-Responsive Uzbek and Russian corporate landing page, built with HTML, CSS and vanilla JavaScript. No build step or dependency installation is needed.
+Responsive Uzbek, Russian and English corporate landing page, built with HTML, CSS and vanilla JavaScript. No build step or dependency installation is needed.
 
 ## Run locally
 
@@ -8,7 +8,10 @@ Open `index.html` in a modern browser. Or run `python -m http.server 8000` from 
 
 ## Included
 
-- Uzbek Latin (UZ-LAT) default and Russian language switcher, remembered in local storage.
+- Uzbek Latin (default), Russian and English language switcher, remembered in local storage.
+- Light and dark themes: follows the system setting on first visit, toggle in the header, remembered in local storage.
+- Insurance Navigator: a dashboard-style panel comparing typical OSAGO / KASKO / corporate coverage, with the documents usually needed and an animated process tracker. Its content is general guidance, not real customer data.
+- Extra motion: intro loader (once per session), reading-progress bar, line-by-line heading reveals, side section dots, header that hides on scroll down, card spotlight, 3D tilt on the dashboard, count-up figures and a marquee band.
 - Responsive sticky navigation and mobile menu, service cards, four-step process, B2B section, FAQ accordion and contact form validation.
 - Locally stored automotive photos, transparent AVENTO logo and provided A-mark favicon, SEO and Open Graph metadata.
 - The Absans typeface is bundled locally with its OFL license; service and future-service symbols use the supplied Streamline SVG icon set.
