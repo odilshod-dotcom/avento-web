@@ -494,3 +494,40 @@ footer{background:var(--navy-deep);color:var(--silver)}
   .stat span{font-size:11px}
 }
 @media(prefers-reduced-motion:reduce){.loader{display:none}.aurora i,.marquee>div{animation:none}}
+
+/* =====================================================================
+   v4 — floating header, nav highlight, about philosophy, partnership
+   ===================================================================== */
+.header{transition:background .4s,height .5s var(--ease),top .5s var(--ease),box-shadow .4s,transform .5s var(--ease)}
+.motion-ready .header{animation:header-arrive .9s var(--ease) var(--intro,0s) backwards}
+@keyframes header-arrive{from{opacity:0;transform:translateY(-24px)}}
+.nav{border:1px solid transparent;transition:width .6s var(--ease),padding .6s var(--ease),background .4s,border-color .4s,box-shadow .4s,border-radius .6s var(--ease)}
+.links{position:relative}
+.links a{z-index:1;white-space:nowrap}
+.links a:after{display:none}
+.links a.current{color:var(--white)}
+.nav-ind{position:absolute;left:0;top:50%;width:calc(var(--iw,0px) + 28px);height:34px;margin-top:-17px;border-radius:99px;background:rgba(231,234,240,.1);box-shadow:inset 0 0 0 1px rgba(231,234,240,.1);opacity:0;transform:translateX(calc(var(--ix,0px) - 14px));transition:transform .45s var(--ease),width .45s var(--ease),opacity .3s;pointer-events:none}
+@media(min-width:921px){
+  .header.scrolled{top:12px;height:64px;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+  .header.scrolled .nav{width:min(calc(100% - 32px),1240px);padding:0 14px 0 26px;border-color:var(--line-dark);border-radius:99px;background:rgba(5,28,44,.8);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%);box-shadow:0 20px 44px -22px rgba(0,0,0,.7)}
+  .header.hide{transform:translateY(calc(-100% - 16px))}
+  .header.scrolled .links{gap:clamp(14px,1.8vw,28px)}
+  .header.scrolled .actions{gap:16px}
+}
+
+.philosophy{margin-top:36px;padding:28px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:4px}
+.philosophy b{color:var(--link);font-size:11px;font-weight:600;letter-spacing:.22em}
+.philosophy strong{display:block;margin:12px 0 10px;color:var(--accent);font:italic 500 clamp(28px,3vw,38px)/1.1 var(--serif)}
+.philosophy p{margin:0;color:var(--text-muted);font-size:14px;line-height:1.7}
+.about-close{display:flex;align-items:center;gap:12px;margin-top:28px;color:var(--text);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.about-close:before{content:"";flex:0 0 7px;height:7px;background:var(--sky);transform:rotate(45deg)}
+
+.partners{background:var(--band)}
+.partner-card{display:grid;grid-template-columns:minmax(220px,340px) 1fr;align-items:center;gap:clamp(28px,4vw,56px);padding:clamp(22px,3vw,40px);background:var(--surface);border:1px solid var(--border);border-radius:6px;box-shadow:var(--shadow)}
+.partner-logo{display:grid;place-items:center;aspect-ratio:16/9;padding:28px;border:1px solid var(--border);border-radius:4px;background:#fff}
+.partner-logo img{display:block;width:100%;max-width:260px;height:auto}
+.partner-card small{color:var(--link);font-size:11px;font-weight:600;letter-spacing:.22em}
+.partner-card h3{margin:10px 0 12px;font-size:clamp(26px,2.8vw,36px);letter-spacing:-.02em}
+.partner-card p{max-width:520px;margin:0;color:var(--text-muted);font-size:15px;line-height:1.8}
+@media(max-width:700px){.partner-card{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.motion-ready .header{animation:none}}

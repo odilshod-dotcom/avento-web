@@ -26,8 +26,33 @@
     });
   }
 
+  // Header: a sliding highlight follows the hovered link and rests on the current section.
+  const links = $('.links'), navLinks = $$('a', links);
+  const ind = document.createElement('i');
+  ind.className = 'nav-ind';
+  links.prepend(ind);
+  let current = null;
+  function moveInd(a) {
+    if (!a) { ind.style.opacity = 0; return; }
+    ind.style.setProperty('--ix', `${a.offsetLeft}px`);
+    ind.style.setProperty('--iw', `${a.offsetWidth}px`);
+    ind.style.opacity = 1;
+  }
+  navLinks.forEach((a) => {
+    a.addEventListener('pointerenter', () => moveInd(a));
+    a.addEventListener('focus', () => moveInd(a));
+  });
+  links.addEventListener('pointerleave', () => moveInd(current));
+  links.addEventListener('focusout', () => moveInd(current));
+  window.addEventListener('resize', () => moveInd(current));
+  function setCurrent(id) {
+    current = navLinks.find((a) => a.getAttribute('href') === `#${id}`) || null;
+    navLinks.forEach((a) => a.classList.toggle('current', a === current));
+    if (!links.matches(':hover')) moveInd(current);
+  }
+
   // Side dots: one per main section, labelled by the section's eyebrow.
-  const sections = ['top', 'services', 'navigator', 'process', 'about', 'business', 'faq', 'contact']
+  const sections = ['top', 'services', 'navigator', 'process', 'about', 'partners', 'business', 'faq', 'contact']
     .map((id) => document.getElementById(id)).filter(Boolean);
   const dots = document.createElement('nav');
   dots.className = 'dots';
@@ -48,7 +73,7 @@
     });
   }
 
-  function onLang() { decorateArrows(); splitHeadings(); labelDots(); }
+  function onLang() { decorateArrows(); splitHeadings(); labelDots(); requestAnimationFrame(() => moveInd(current)); }
   onLang();
   document.addEventListener('avento:lang', onLang);
 
@@ -75,6 +100,7 @@
         if (!e.isIntersecting) return;
         const i = sections.indexOf(e.target);
         [...dots.children].forEach((d, k) => d.classList.toggle('active', k === i));
+        setCurrent(e.target.id);
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     sections.forEach((s) => spy.observe(s));
@@ -91,7 +117,7 @@
   if (reduced || !('IntersectionObserver' in window)) return;
 
   // Scroll reveals with a stagger between siblings.
-  const targets = $$('.strip-inner, .section-head, .services article, .steps article, .about-photo, .about > div:last-child, .business-inner > div, .future-list > div, .future-note, .faq > div, .accordion details, .contact-grid > div, .nav-grid > div, .stat, .foot-main, .foot-bottom');
+  const targets = $$('.strip-inner, .section-head, .services article, .steps article, .about-photo, .about > div:last-child, .partner-card, .business-inner > div, .future-list > div, .future-note, .faq > div, .accordion details, .contact-grid > div, .nav-grid > div, .stat, .foot-main, .foot-bottom');
   targets.forEach((el) => {
     const peers = targets.filter((item) => item.parentElement === el.parentElement);
     el.style.setProperty('--motion-delay', `${Math.min(peers.indexOf(el), 4) * 85}ms`);
