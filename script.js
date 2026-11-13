@@ -45,7 +45,7 @@ function setLang(l){
 $$('.langs button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
 /* Theme: circular reveal from the toggle where View Transitions exist */
-function applyTheme(next){root.dataset.theme=next;$('meta[name="theme-color"]').content=next==='dark'?'#0A1424':'#101D32';try{localStorage.setItem('avento-theme',next)}catch(_){}}
+function applyTheme(next){root.dataset.theme=next;$('meta[name="theme-color"]').content=next==='dark'?'#031320':'#051C2C';try{localStorage.setItem('avento-theme',next)}catch(_){}}
 themeBtn.addEventListener('click',()=>{
   const next=root.dataset.theme==='dark'?'light':'dark';
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;

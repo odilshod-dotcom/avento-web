@@ -30,4 +30,4 @@ Upload this directory's contents to your hosting web root, point `avento.uz` and
 
 ## Image
 
-`assets/hero-car.jpg` is a locally stored Unsplash CDN photograph. Check Unsplash's current license and image rights for commercial publication. `assets/business-fleet.jpg` is the generated image used in the business fleet section. Photos and the logo mark are colour-graded to the brand palette (Midnight Navy #101D32, Petrol Blue #0F5964, Champagne Gold #D8B66B, Silver White #E7EAF0); untouched originals are in `assets/_originals/`, previous CSS/HTML in `_backup/`.
+`assets/hero-car.jpg` is a locally stored Unsplash CDN photograph. Check Unsplash's current license and image rights for commercial publication. `assets/business-fleet.jpg` is the generated image used in the business fleet section. Photos and the logo mark are colour-graded to the brand palette (Deep Blue #051C2C, Electric Blue #2251FF, Sky Cyan #00A9F4, Silver White #E7EAF0); untouched originals are in `assets/_originals/`, previous CSS/HTML in `_backup/`.

@@ -27,7 +27,7 @@
 .steps article:nth-child(2).is-visible>i{animation-delay:.12s}
 .steps article:nth-child(3).is-visible>i{animation-delay:.24s}
 .steps article:nth-child(4).is-visible>i{animation-delay:.36s}
-.steps article:hover>i{background:var(--gold);color:var(--navy);transform:scale(1.08)}
+.steps article:hover>i{background:var(--sky);color:var(--navy);transform:scale(1.08)}
 .accordion summary:after{transition:transform .3s var(--motion-ease),color .3s,background .3s}
 .accordion details[open] summary:after{transform:rotate(180deg)}
 .inline-icon,.motion-arrow{display:inline-block;width:15px;height:15px;object-fit:contain;vertical-align:-3px;margin-left:6px}

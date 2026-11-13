@@ -8,7 +8,7 @@
   function decorateArrows() {
     $$('a, button').forEach((el) => {
       if (!/[↗↓↑]/.test(el.innerHTML)) return;
-      const right = el.closest('.gold') ? 'arrow-right-navy.svg' : 'arrow-right-petrol.svg';
+      const right = el.closest('.primary') ? 'arrow-right-navy.svg' : 'arrow-right-petrol.svg';
       el.innerHTML = el.innerHTML
         .replaceAll('↗', `<img class="motion-arrow" src="assets/icons/${right}" alt="" aria-hidden="true">`)
         .replaceAll('↓', '<img class="motion-arrow is-down" src="assets/icons/arrow-down-gold.svg" alt="" aria-hidden="true">')

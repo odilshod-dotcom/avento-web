@@ -10,3 +10,6 @@ desktop.ini
 assets/avento-logo.png
 assets/avento-logo-transparent.png
 assets/business-fleet.png
+
+# Local copy of installed agent skills
+.agents/
