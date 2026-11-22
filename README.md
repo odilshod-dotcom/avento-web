@@ -16,19 +16,19 @@ Open `index.html` in a modern browser. Or run `python -m http.server 8000` from 
 - Locally stored automotive photos, transparent AVENTO logo and provided A-mark favicon, SEO and Open Graph metadata.
 - The Absans typeface is bundled locally with its OFL license; service and future-service symbols use the supplied Streamline SVG icon set.
 - Motion includes a staged hero intro, scroll reveals with stagger, subtle hero parallax, a slow fleet-image zoom, and small icon/button hover transitions. Reduced-motion preferences are honored.
-- SEO: canonical URL, absolute Open Graph image, Twitter card, JSON-LD (`ProfessionalService`, no phone/email until confirmed), `robots.txt` and `sitemap.xml` for avento.uz.
+- SEO: canonical URL, absolute Open Graph image, Twitter card, JSON-LD (`ProfessionalService`, with phone), `robots.txt` and `sitemap.xml` for aventogroup.uz.
 - Mobile: sticky "consultation" button that appears after the hero and hides at the contact form; 44px touch targets for language, theme and link controls.
 - Legal copy clarifies AVENTO is not an insurer; future services are labeled as plans.
 
 ## Before launch
 
-- Add verified phone, email, office address, Telegram and Instagram details.
-- Connect the form to a backend. It currently validates locally and does not send data.
+- Add verified email, office address, Telegram and Instagram details (phone +998 77 838 68 88 is set).
+- The form posts to FormSubmit (formsubmit.co) and is delivered to odilshod@gmail.com. The first submission sends an activation email to that address; confirm it once. Afterwards, replace the address in `script.js` with the random alias FormSubmit provides, to keep the inbox out of page source.
 - Confirm partner agreements and legal copy before publication.
 
-## Deploy to avento.uz
+## Deploy to aventogroup.uz
 
-Upload this directory's contents to your hosting web root, point `avento.uz` and `www` to the host, enable HTTPS, and set your preferred host redirect. DNS records depend on your hosting provider. Verify the deployed site and form endpoint after publishing.
+Upload this directory's contents to your hosting web root, point `aventogroup.uz` and `www` to the host, enable HTTPS, and set your preferred host redirect. DNS records depend on your hosting provider. Verify the deployed site and form endpoint after publishing.
 
 ## Image
 
