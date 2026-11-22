@@ -24,13 +24,17 @@
   --ease:cubic-bezier(.2,.75,.25,1);
   --shadow:0 30px 70px -30px rgba(3,19,32,.35);
   /* theme tokens */
-  --bg:#F4F5F8;
+  --bg:#FFFFFF;
   --surface:#FFFFFF;
-  --band:#E7EAF0;
-  --form:#F4F5F8;
-  --field:#FFFFFF;
-  --chip:#E7EAF0;
-  --hover:rgba(255,255,255,.55);
+  --band:#F4F6FA;
+  --form:#FFFFFF;
+  --field:#F4F6FA;
+  --chip:#EDF1F8;
+  --hover:rgba(5,28,44,.03);
+  --silver:#051C2C;
+  --white:#051C2C;
+  --muted-dark:#5A6577;
+  --line-dark:rgba(5,28,44,.12);
   --text:#051C2C;
   --text-muted:#5A6577;
   --text-faint:#8A93A2;
@@ -56,6 +60,10 @@
   --accent:#00A9F4;
   --link:#7FD4FA;
   --shadow:0 30px 70px -30px rgba(0,0,0,.7);
+  --silver:#E7EAF0;
+  --white:#FFFFFF;
+  --muted-dark:#A9B2C1;
+  --line-dark:rgba(231,234,240,.12);
   color-scheme:dark;
 }
 
@@ -531,3 +539,133 @@ footer{background:var(--navy-deep);color:var(--silver)}
 .partner-card p{max-width:520px;margin:0;color:var(--text-muted);font-size:15px;line-height:1.8}
 @media(max-width:700px){.partner-card{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.motion-ready .header{animation:none}}
+
+/* v5: touch targets + mobile sticky CTA */
+.sticky-cta{display:none}
+@media(max-width:820px){
+  .langs button{min-width:44px;min-height:44px;padding:0}
+  .theme{width:44px;height:44px}
+  .mobile a,.services article>a,.text-link{display:inline-flex;align-items:center;min-height:44px}
+  .sticky-cta{position:fixed;z-index:60;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:999px;background:var(--sky);color:var(--navy-deep);font-weight:600;font-size:15px;text-decoration:none;box-shadow:0 14px 34px -10px rgba(0,169,244,.65);transform:translateY(140%);opacity:0;pointer-events:none;transition:transform .45s var(--ease),opacity .3s}
+  .sticky-cta.show{transform:none;opacity:1;pointer-events:auto}
+  footer{padding-bottom:84px}
+}
+@media(prefers-reduced-motion:reduce){.sticky-cta{transition:none}}
+
+/* =====================================================================
+   v6 — true white light theme (dark sections become white / pale)
+   --silver, --white, --muted-dark and --line-dark are re-pointed to ink
+   tokens in the light :root, so most dark-section text flips automatically.
+   ===================================================================== */
+html:not([data-theme=dark]){--shadow:0 24px 60px -28px rgba(5,28,44,.22)}
+html:not([data-theme=dark]) .eyebrow.light{color:var(--link)}
+html:not([data-theme=dark]) .loader{background:#fff}
+
+/* header */
+html:not([data-theme=dark]) .header{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,0))}
+html:not([data-theme=dark]) .header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 1px 0 var(--border),0 18px 40px -26px rgba(5,28,44,.25)}
+html:not([data-theme=dark]) .brand-text small{color:var(--blue)}
+html:not([data-theme=dark]) .links a{color:rgba(5,28,44,.72)}
+html:not([data-theme=dark]) .links a:hover,html:not([data-theme=dark]) .links a.current{color:var(--ink)}
+html:not([data-theme=dark]) .nav-ind{background:rgba(5,28,44,.06);box-shadow:inset 0 0 0 1px rgba(5,28,44,.08)}
+html:not([data-theme=dark]) .langs button{color:rgba(5,28,44,.5)}
+html:not([data-theme=dark]) .langs button:hover{color:var(--ink)}
+html:not([data-theme=dark]) .langs button.active{color:var(--blue)}
+html:not([data-theme=dark]) .langs i{border-color:rgba(5,28,44,.2)}
+html:not([data-theme=dark]) .theme{border-color:rgba(5,28,44,.2)}
+html:not([data-theme=dark]) .theme:hover{border-color:var(--blue);color:var(--blue)}
+html:not([data-theme=dark]) .outline{border-color:var(--blue);color:var(--blue)}
+html:not([data-theme=dark]) .outline:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+@media(min-width:921px){
+  html:not([data-theme=dark]) .header.scrolled{background:none;box-shadow:none}
+  html:not([data-theme=dark]) .header.scrolled .nav{background:rgba(255,255,255,.86);border-color:var(--border);box-shadow:0 18px 44px -24px rgba(5,28,44,.3)}
+}
+@media(max-width:920px){
+  html:not([data-theme=dark]) .header{background:rgba(255,255,255,.94)}
+  html:not([data-theme=dark]) .mobile{background:#fff;box-shadow:0 24px 40px -20px rgba(5,28,44,.25)}
+  html:not([data-theme=dark]) .mobile a:last-child{color:var(--blue)}
+}
+
+/* hero: white field, car fades in from the right */
+html:not([data-theme=dark]) .hero{background:#fff}
+html:not([data-theme=dark]) .hero-bg{background:
+  linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,0) 22%),
+  linear-gradient(90deg,#fff 0%,rgba(255,255,255,.94) 34%,rgba(255,255,255,.35) 66%,rgba(255,255,255,0) 100%),
+  linear-gradient(0deg,#fff 0%,rgba(255,255,255,0) 26%),
+  url("assets/hero-car.jpg") 62% 55%/cover no-repeat}
+html:not([data-theme=dark]) .hero h1 em{color:var(--blue)}
+html:not([data-theme=dark]) .tagline{color:var(--blue)}
+html:not([data-theme=dark]) .hero-copy{color:var(--text-muted)}
+html:not([data-theme=dark]) .hero .text-link{border-color:var(--blue)}
+html:not([data-theme=dark]) .hero .text-link:hover{color:var(--blue)}
+html:not([data-theme=dark]) .hero-place{color:var(--text-muted)}
+html:not([data-theme=dark]) .hero-place:before{border-color:var(--blue)}
+html:not([data-theme=dark]) .hero-index{color:var(--text-muted)}
+html:not([data-theme=dark]) .hero-index i{background:var(--blue)}
+@media(max-width:600px){
+  html:not([data-theme=dark]) .hero-bg{background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.55) 45%,rgba(255,255,255,.92)),url("assets/hero-car.jpg") 66% center/cover no-repeat}
+}
+
+/* strip */
+html:not([data-theme=dark]) .strip{background:var(--band)}
+html:not([data-theme=dark]) .strip-inner b{color:var(--blue)}
+html:not([data-theme=dark]) .strip-inner span{color:var(--text-muted)}
+
+/* navigator + dashboard */
+html:not([data-theme=dark]) .navigator{background:var(--band)}
+html:not([data-theme=dark]) .aurora{opacity:.09}
+html:not([data-theme=dark]) .navigator h2 em,html:not([data-theme=dark]) .process h2 em,html:not([data-theme=dark]) .business h2 em,html:not([data-theme=dark]) .contact h2 em{color:var(--blue)}
+html:not([data-theme=dark]) .dash{background:#fff;border-color:var(--border-strong);box-shadow:0 50px 90px -50px rgba(5,28,44,.4),0 0 0 1px rgba(5,28,44,.02)}
+html:not([data-theme=dark]) .dash-bar i{background:rgba(5,28,44,.14)}
+html:not([data-theme=dark]) .dash-bar i:first-child{background:var(--blue)}
+html:not([data-theme=dark]) .dash-bar span{border-color:rgba(34,81,255,.35);color:var(--blue)}
+html:not([data-theme=dark]) .dash-tabs button:hover{border-color:var(--blue)}
+html:not([data-theme=dark]) .dash-tabs button.active{background:var(--blue);border-color:var(--blue);color:#fff}
+html:not([data-theme=dark]) .panel{background:var(--band);border-color:var(--border)}
+html:not([data-theme=dark]) .panel h4{color:var(--blue)}
+html:not([data-theme=dark]) .panel small,html:not([data-theme=dark]) .dash-foot small{color:var(--text-faint)}
+html:not([data-theme=dark]) .chip.yes{background:rgba(34,81,255,.1);color:var(--blue)}
+html:not([data-theme=dark]) .chip.no{background:rgba(5,28,44,.06);color:#6B7587}
+html:not([data-theme=dark]) .chip.dep{background:rgba(0,169,244,.16);color:#00709F}
+html:not([data-theme=dark]) .docs li:before{background:var(--blue)}
+html:not([data-theme=dark]) .track li{color:var(--text-faint)}
+html:not([data-theme=dark]) .track li:before{border-color:rgba(5,28,44,.25)}
+html:not([data-theme=dark]) .track li:not(:last-child):after{background:rgba(5,28,44,.14)}
+html:not([data-theme=dark]) .track li.done:before{border-color:var(--blue);color:var(--blue)}
+html:not([data-theme=dark]) .track li.active:before{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 0 5px rgba(34,81,255,.14)}
+
+/* process */
+html:not([data-theme=dark]) .process{background:#fff}
+html:not([data-theme=dark]) .process:before{background:radial-gradient(circle,rgba(34,81,255,.09),transparent 65%)}
+html:not([data-theme=dark]) .steps:before{background:linear-gradient(90deg,var(--blue),rgba(34,81,255,.12))}
+html:not([data-theme=dark]) .steps article>i{background:#fff;border-color:var(--blue);color:var(--blue)}
+html:not([data-theme=dark]) .steps article:hover>i{background:var(--blue);color:#fff}
+
+/* business */
+html:not([data-theme=dark]) .business{background:#fff}
+html:not([data-theme=dark]) .fleet:before{background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,0) 30%)}
+@media(max-width:920px){html:not([data-theme=dark]) .fleet:before{background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0) 30%)}}
+
+/* contact */
+html:not([data-theme=dark]) .contact{background:var(--band)}
+html:not([data-theme=dark]) .contact:before{background:radial-gradient(circle,rgba(34,81,255,.1),transparent 65%)}
+html:not([data-theme=dark]) .details span{color:var(--blue)}
+html:not([data-theme=dark]) .contact form{border:1px solid var(--border);border-top:3px solid var(--blue);box-shadow:0 40px 80px -40px rgba(5,28,44,.3)}
+
+/* footer */
+html:not([data-theme=dark]) footer{background:#fff;border-top:1px solid var(--border)}
+html:not([data-theme=dark]) .foot-main>i{color:var(--blue)}
+html:not([data-theme=dark]) .foot-main nav a:hover{color:var(--blue)}
+html:not([data-theme=dark]) .foot-bottom{color:var(--text-muted)}
+html:not([data-theme=dark]) .foot-bottom>a{border-color:var(--border-strong)}
+html:not([data-theme=dark]) .foot-bottom>a:hover{background:var(--blue);border-color:var(--blue)}
+html:not([data-theme=dark]) .foot-bottom>a img{filter:brightness(0);transition:filter .3s}
+html:not([data-theme=dark]) .foot-bottom>a:hover img{filter:brightness(0) invert(1)}
+
+/* items that sit on photos or dark chips keep light text */
+html:not([data-theme=dark]) .about-photo:after,
+html:not([data-theme=dark]) .stamp small,
+html:not([data-theme=dark]) .dots a span{color:#E7EAF0}
+html:not([data-theme=dark]) .dots a{border-color:var(--blue)}
+html:not([data-theme=dark]) .dots a.active{background:var(--blue)}
+html:not([data-theme=dark]) .sticky-cta{background:var(--blue);color:#fff;box-shadow:0 14px 34px -10px rgba(34,81,255,.55)}

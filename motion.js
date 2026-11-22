@@ -160,3 +160,18 @@
   });
   stage.addEventListener('pointerleave', () => { dash.style.setProperty('--rx', '0deg'); dash.style.setProperty('--ry', '0deg'); });
 })();
+
+/* v5: mobile sticky CTA — shown after the hero, hidden while the contact form is on screen */
+(() => {
+  const cta = document.querySelector('.sticky-cta'), hero = document.querySelector('.hero'), contact = document.querySelector('#contact');
+  if (!cta || !hero || !contact || !('IntersectionObserver' in window)) return;
+  let pastHero = false, atContact = false;
+  const sync = () => {
+    const on = pastHero && !atContact;
+    cta.classList.toggle('show', on);
+    cta.setAttribute('aria-hidden', String(!on));
+    cta.tabIndex = on ? 0 : -1;
+  };
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }).observe(hero);
+  new IntersectionObserver(([e]) => { atContact = e.isIntersecting; sync(); }, { threshold: 0.1 }).observe(contact);
+})();

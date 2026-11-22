@@ -16,6 +16,8 @@ Open `index.html` in a modern browser. Or run `python -m http.server 8000` from 
 - Locally stored automotive photos, transparent AVENTO logo and provided A-mark favicon, SEO and Open Graph metadata.
 - The Absans typeface is bundled locally with its OFL license; service and future-service symbols use the supplied Streamline SVG icon set.
 - Motion includes a staged hero intro, scroll reveals with stagger, subtle hero parallax, a slow fleet-image zoom, and small icon/button hover transitions. Reduced-motion preferences are honored.
+- SEO: canonical URL, absolute Open Graph image, Twitter card, JSON-LD (`ProfessionalService`, no phone/email until confirmed), `robots.txt` and `sitemap.xml` for avento.uz.
+- Mobile: sticky "consultation" button that appears after the hero and hides at the contact form; 44px touch targets for language, theme and link controls.
 - Legal copy clarifies AVENTO is not an insurer; future services are labeled as plans.
 
 ## Before launch
